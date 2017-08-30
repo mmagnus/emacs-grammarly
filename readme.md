@@ -1,4 +1,4 @@
-emacs-grammarly.el --- simple plugin to send text to Grammarly  
+emacs-grammarly.el --- simple plugin to send a text to Grammarly  
 -------------------------------------------------------------------------------
 
 ![](docs/demo.gif)
