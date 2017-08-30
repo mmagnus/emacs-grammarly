@@ -3,6 +3,8 @@ emacs-grammarly.el --- a simple plugin to send a text to Grammarly
 
 ![](docs/1LqnWeJs1U.gif)
 
+From Grammarly then you can copy-paste your text wherever you want.
+
 Install:
 
     # load el file in your .emacs, e.g. 
