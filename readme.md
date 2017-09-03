@@ -3,7 +3,7 @@ emacs-grammarly.el --- simple plugin to send a text to Grammarly
 
 ![](docs/demo.gif)
 
-From Grammarly then you can copy-paste your text wherever you want.
+**From Grammarly then you can copy-paste your text wherever you want (including back to your Emacs).**
 
 Install Grammarly App (OSX version in this case) https://www.grammarly.com/native/mac 
 
