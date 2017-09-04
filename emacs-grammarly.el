@@ -12,7 +12,5 @@
   (write-region (region-beginning) (region-end) grammarly-tempfile)
   (call-process-shell-command (concat grammarly-cmd " " grammarly-tempfile)))
 
-(global-set-key (kbd "C-c C-g") 'grammarly-save-region-and-run)
-
 (provide 'emacs-grammarly)
 ;;; emacs-grammarly.el ends here
