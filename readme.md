@@ -18,3 +18,7 @@ Configuration (in the `emacs-grammarly.el` file):
     (defvar grammarly-cmd "open -a Grammarly")
 
 Change to your tempfile and change a way how you would run Grammarly from the terminal (this way works of OSX).
+
+This is a proof of concept. Feel free to send pull requests or fork it.
+
+Read more at https://www.reddit.com/r/emacs/comments/6x0ezx/emacs_grammarly_a_simple_plugin/ 
