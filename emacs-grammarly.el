@@ -15,6 +15,13 @@ tell application \"System Events\"
 end tell
 END")
 
+(defvar grammarly-do-unfill-paragraph t
+  "If non-nil, remove newlines in paragraphs before sending it to Grammarly.")
+
+(defun grammarly-unfill-paragraph ()
+  (let ((fill-column most-positive-fixnum))
+    (fill-region (point-min) (point-max))))
+
 (defun grammarly-save-region-and-run ()
   "Save region to a tempfile and run Grammarly on it."
   (interactive)
@@ -23,7 +30,10 @@ END")
         (file (or grammarly-file
                   (setq grammarly-file
                         (make-temp-file "grammarly" nil ".txt")))))
-    (write-region beg end file)
+    (let ((buf (current-buffer)))
+      (with-temp-file file
+        (insert-buffer-substring buf beg end)
+        (when grammarly-do-unfill-paragraph (grammarly-unfill-paragraph))))
     (call-process-shell-command
      (concat grammarly-cmd " " file ";" grammarly-reload-cmd))))
 
