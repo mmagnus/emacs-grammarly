@@ -23,4 +23,5 @@ Keybinding
 
 Bind the `grammarly-save-region-and-run` to a key, for instance:
 
-    (global-set-key (kbd "C-c C-g") 'grammarly-save-region-and-run)
+    (global-set-key (kbd "C-c C-g") 'grammarly-save-region-and-run)
+    
