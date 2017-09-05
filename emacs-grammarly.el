@@ -18,10 +18,12 @@ END")
 (defun grammarly-save-region-and-run ()
   "Save region to a tempfile and run Grammarly on it."
   (interactive)
-  (let ((file (or grammarly-file
+  (let ((beg (if (region-active-p) (region-beginning) (point-min)))
+        (end (if (region-active-p) (region-end) (point-max)))
+        (file (or grammarly-file
                   (setq grammarly-file
                         (make-temp-file "grammarly" nil ".txt")))))
-    (write-region (region-beginning) (region-end) file)
+    (write-region beg end file)
     (call-process-shell-command
      (concat grammarly-cmd " " file ";" grammarly-reload-cmd))))
 
