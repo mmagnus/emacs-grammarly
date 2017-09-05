@@ -1,4 +1,4 @@
-emacs-grammarly.el --- simple plugin to send a text to Grammarly  
+emacs-grammarly.el --- simple plugin to send a text to Grammarly
 ===================================================================================
 
 ![](docs/demo.gif)
@@ -25,5 +25,9 @@ Change the variables in the `emacs-grammarly.el` file, so it would work for you:
 
     (defvar grammarly-tempfile "/home/magnus/Desktop/Grammarly.txt")
     (defvar grammarly-cmd "open -a Grammarly")
+
+Bind the `grammarly-save-region-and-run` to a key, for instance:
+
+    (global-set-key (kbd "C-c C-g") 'grammarly-save-region-and-run)
 
 Change to your tempfile and change a way how you would run Grammarly from the terminal (this way works of OSX).
