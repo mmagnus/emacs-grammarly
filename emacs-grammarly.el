@@ -1,6 +1,6 @@
 ;;; emacs-grammarly.el --- a simple plugin to sent text to Grammarly
 ;;; Commentary:
-;;   URL: http://example.com/jrhacker/superfrobnicate
+;;   URL: https://github.com/mmagnus/emacs-grammarly
 ;;; Code:
 
 (defvar grammarly-file nil
