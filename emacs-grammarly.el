@@ -8,12 +8,7 @@
 
 (defvar grammarly-cmd "open -a Grammarly")
 
-(defvar grammarly-reload-cmd "osascript <<END
-tell application \"Grammarly\" to activate
-tell application \"System Events\"
-        keystroke \"r\" using command down
-end tell
-END")
+(defvar grammarly-quit-cmd "osascript -e 'quit app \"Grammarly\"'")
 
 (defvar grammarly-do-unfill-paragraph t
   "If non-nil, remove newlines in paragraphs before sending it to Grammarly.")
@@ -35,7 +30,7 @@ END")
         (insert-buffer-substring buf beg end)
         (when grammarly-do-unfill-paragraph (grammarly-unfill-paragraph))))
     (call-process-shell-command
-     (concat grammarly-cmd " " file ";" grammarly-reload-cmd))))
+     (concat grammarly-quit-cmd ";" grammarly-cmd " " file))))
 
 (provide 'emacs-grammarly)
 ;;; emacs-grammarly.el ends here
