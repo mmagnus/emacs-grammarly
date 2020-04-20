@@ -6,7 +6,7 @@
 (defvar grammarly-file nil
   "The temporary file for storing things sent to Grammarly.")
 
-(defvar grammarly-cmd "open -a Grammarly_1.5.61")
+(defvar grammarly-cmd "open -a Grammarly_61")
 
 (defvar grammarly-quit-cmd "osascript -e 'quit app \"Grammarly\"'")
 
