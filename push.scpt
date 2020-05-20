@@ -3,7 +3,7 @@ tell application "System Events"
                 set visible to true
 		set frontmost to true
          	click menu item "Paste" of menu "Edit" of menu bar 1
-		display notification "All graphics have been converted." with title "My Graphic Processing Script" subtitle "Processing is complete." sound name "Frog"
+       		display notification "" with title "Emacs Grammarly" subtitle "Pull" sound name "Pop"
 	end tell
 end tell
 delay 0.1
