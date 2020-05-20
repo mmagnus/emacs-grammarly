@@ -2,35 +2,23 @@
 ;;; Commentary:
 ;;   URL: https://github.com/mmagnus/emacs-grammarly
 ;;; Code:
-
-(defvar grammarly-file nil
-  "The temporary file for storing things sent to Grammarly.")
-
-(defvar grammarly-cmd "open -a Grammarly_61")
-
-(defvar grammarly-quit-cmd "osascript -e 'quit app \"Grammarly\"'")
-
-(defvar grammarly-do-unfill-paragraph t
-  "If non-nil, remove newlines in paragraphs before sending it to Grammarly.")
-
-(defun grammarly-unfill-paragraph ()
-  (let ((fill-column most-positive-fixnum))
-    (fill-region (point-min) (point-max))))
-
-(defun grammarly-save-region-and-run ()
+(defun grammarly-push ()
   "Save region to a tempfile and run Grammarly on it."
   (interactive)
-  (let ((beg (if (region-active-p) (region-beginning) (point-min)))
-        (end (if (region-active-p) (region-end) (point-max)))
-        (file (or grammarly-file
-                  (setq grammarly-file
-                        (make-temp-file "grammarly" nil ".txt")))))
-    (let ((buf (current-buffer)))
-      (with-temp-file file
-        (insert-buffer-substring buf beg end)
-        (when grammarly-do-unfill-paragraph (grammarly-unfill-paragraph))))
-    (call-process-shell-command
-     (concat grammarly-quit-cmd ";" grammarly-cmd " " file))))
+  (kill-region (region-beginning) (region-end))
+  ;;(insert "<<here>>")
+  (call-process-shell-command "osascript ~/.emacs.d/plugins/emacs-grammarly/push.scpt")
+  )
+
+(defun grammarly-pull()
+  "Save region to a tempfile and run Grammarly on it."
+  (interactive)
+  (call-process-shell-command "osascript ~/.emacs.d/plugins/emacs-grammarly/pull.scpt")
+  (yank)
+  )
+
+(global-set-key (kbd "C-c C-g h") 'grammarly-push)
+(global-set-key (kbd "C-c C-g l") 'grammarly-pull)
 
 (provide 'emacs-grammarly)
 ;;; emacs-grammarly.el ends here
