@@ -1,4 +1,4 @@
-emacs-grammarly.el --- simple plugin to send text to/from Grammarly [OSX]
+send-to-osx-grammarly.el --- simple plugin to send text to/from Grammarly [OSX]
 ===================================================================================
 
 ![](docs/demo.gif)
