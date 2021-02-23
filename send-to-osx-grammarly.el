@@ -33,20 +33,28 @@
 
 ;;; Code:
 
-(defun grammarly-push ()
+(defconst send-to-osx-grammarly-script-dir
+  (let ((dir (file-name-directory (find-library-name "send-to-osx-grammarly"))))
+    (concat dir "scripts/"))
+  "Script path for package `send-to-osx-grammarly'.")
+
+(defun send-to-osx-grammarly--call (script)
+  "Call SCRIPT from script directory."
+  (call-process-shell-command (format "osascript %s%s" send-to-osx-grammarly-script-dir script)))
+
+;;;###autoload
+(defun send-to-osx-grammarly-push ()
   "Save region to a tempfile and run Grammarly on it."
   (interactive)
   (kill-region (region-beginning) (region-end))
-  ;;(insert "<<here>>")
-  (call-process-shell-command "osascript ~/.emacs.d/plugins/emacs-grammarly/push.scpt")
-  )
+  (send-to-osx-grammarly--call "push.scpt"))
 
-(defun grammarly-pull()
+;;;###autoload
+(defun send-to-osx-grammarly-pull()
   "Save region to a tempfile and run Grammarly on it."
   (interactive)
-  (call-process-shell-command "osascript ~/.emacs.d/plugins/emacs-grammarly/pull.scpt")
-  (yank)
-  )
+  (send-to-osx-grammarly--call "pull.scpt")
+  (yank))
 
 (provide 'send-to-osx-grammarly)
 ;;; send-to-osx-grammarly.el ends here
