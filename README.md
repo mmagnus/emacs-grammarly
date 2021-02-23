@@ -34,9 +34,9 @@ and allow Emacs to use Accessibility (for Apple Scripts):
 
 ## Keybinding
 
-Default binding:
+You can bind key using the following snippets.
 
 ```el
-(global-set-key (kbd "C-c C-g h") 'send-to-osx-grammarly-push)
-(global-set-key (kbd "C-c C-g l") 'send-to-osx-grammarly-pull)
+(define-key global-map (kbd "C-c C-g h") #'send-to-osx-grammarly-push)
+(define-key global-map (kbd "C-c C-g l") #'send-to-osx-grammarly-pull)
 ```
