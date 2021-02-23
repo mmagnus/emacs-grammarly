@@ -19,13 +19,13 @@ Insert this code into your `.emacs`:
 
 ```el
 ;; load el file in your .emacs, e.g.
-(load-file "~/.emacs.d/plugins/emacs-grammarly/emacs-grammarly.el")
+(load-file "~/.emacs.d/plugins/send-to-osx-grammarly/send-to-osx-grammarly.el")
 ```
 
 in the plugin code set path to pull and push script, for me this is:
 
 ```el
-(call-process-shell-command "osascript ~/.emacs.d/plugins/emacs-grammarly/pull.scpt")
+(call-process-shell-command "osascript ~/.emacs.d/plugins/send-to-osx-grammarly/pull.scpt")
 ```
 
 and allow Emacs to use Accessibility (for Apple Scripts):
@@ -37,6 +37,6 @@ and allow Emacs to use Accessibility (for Apple Scripts):
 Default binding:
 
 ```el
-(global-set-key (kbd "C-c C-g h") 'grammarly-push)
-(global-set-key (kbd "C-c C-g l") 'grammarly-pull)
+(global-set-key (kbd "C-c C-g h") 'send-to-osx-grammarly-push)
+(global-set-key (kbd "C-c C-g l") 'send-to-osx-grammarly-pull)
 ```
