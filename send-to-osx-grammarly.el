@@ -35,8 +35,7 @@
 ;;; Code:
 
 (defconst send-to-osx-grammarly-script-dir
-  (let ((dir (file-name-directory (find-library-name "send-to-osx-grammarly"))))
-    (concat dir "scripts/"))
+  (concat (file-name-directory load-file-name) "scripts/")
   "Script path for package `send-to-osx-grammarly'.")
 
 (defun send-to-osx-grammarly--call (script)
